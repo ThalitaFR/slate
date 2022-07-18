@@ -317,12 +317,23 @@
       <ul id="toc" class="toc-list-h1">
           <li>
             <a href="#introducao" class="toc-h1 toc-link" data-title="Introdução">Introdução</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#metodo-findneedles" class="toc-h2 toc-link" data-title="Método findNeedles">Método findNeedles</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#autenticacao" class="toc-h1 toc-link" data-title="Autenticação">Autenticação</a>
           </li>
           <li>
             <a href="#needles" class="toc-h1 toc-link" data-title="Needles">Needles</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#find-needles" class="toc-h2 toc-link" data-title="Find Needles">Find Needles</a>
+                  </li>
+                  <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
               </ul>
           </li>
@@ -342,16 +353,13 @@
 <p>Sejam bem-vindos ao meu site! 
 Meu nome é Thalita Freire Rodrigues, sou Technical Writer a 3 anos e irei apresentar um exemplo de documentação de API.
 A API fictícia <strong>Needles</strong> possui um método chamado <strong>findNeedles</strong>, o qual será usado no exemplo a seguir.</p>
-
-<p><strong>Método findNeedles</strong>
-<code>
-public static void findNeedles(String haystack, String [] needles){
+<h2 id='metodo-findneedles'>Método findNeedles</h2><div class="highlight"><pre class="highlight plaintext"><code>public static void findNeedles(String haystack, String [] needles){
   if(needles.length&gt;5){
-    System.err.println(&quot;Too many words!&quot;);
+    System.err.println("Too many words!");
   }else{
     int[] countArray = new int[needles.length];
     for(int i = 0; i&lt; needles.length; i++){
-      String [] words = haystack.split(&quot;[\&quot;\&#39;\t\n\b\f\r]&quot;, 0);
+      String [] words = haystack.split("[\"\'\t\n\b\f\r]", 0);
         for (int j=0; j &lt; words.length; j++){
           if(words[j].compareTo(needles[i]) == 0){
             countArray[i]++;
@@ -359,21 +367,18 @@ public static void findNeedles(String haystack, String [] needles){
         }
     }
     for (int j = 0; j &lt; needles.length; j++){
-      System.out.println(needles[j] + &quot;:&quot; + countArray[j]);
+      System.out.println(needles[j] + ":" + countArray[j]);
     }
   }
 }
-</code>>
-</p>
-<div class="highlight"><pre class="highlight plaintext"># Autenticação
 
-&gt; Para se autenticar na API, use os seguintes códigos:
+</code></pre></div><h1 id='autenticacao'>Autenticação</h1>
+<blockquote>
+<p>Para se autenticar na API, use os seguintes códigos:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'needles'</span>
 
-<code>
-ruby
-require 'needles'
-
-api = needles::APIClient.authorize!('chave-do-usuario')
+<span class="n">api</span> <span class="o">=</span> <span class="n">needles</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'chave-do-usuario'</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">needles</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">needles</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'chave-do-usuario'</span><span class="p">)</span>
@@ -424,7 +429,7 @@ curl <span class="s2">"endpoint-da-api"</span> <span class="se">\</span>
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>Esse endpoint retorna a quantidade de agulhas, representadas por letras ou palavras, encontradas em um palheiro.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h2 id='http-request'>HTTP Request</h2>
 <p><code>Post http://needles.com/api/findNeedles</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
