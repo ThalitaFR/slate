@@ -29,7 +29,8 @@ Sejam bem-vindos ao meu site!
 Meu nome é Thalita Freire Rodrigues, sou Technical Writer a 3 anos e irei apresentar um exemplo de documentação de API.
 A API fictícia **Needles** possui um método chamado **findNeedles**, o qual será usado no exemplo a seguir.
 
-**Método findNeedles**
+## Método findNeedles
+
 ```
 public static void findNeedles(String haystack, String [] needles){
   if(needles.length>5){
@@ -51,6 +52,7 @@ public static void findNeedles(String haystack, String [] needles){
 }
 
 ```
+
 # Autenticação
 
 > Para se autenticar na API, use os seguintes códigos:
@@ -135,7 +137,7 @@ let needles = api.needles.post(haystack, needles);
 
 Esse endpoint retorna a quantidade de agulhas, representadas por letras ou palavras, encontradas em um palheiro.
 
-### HTTP Request
+## HTTP Request
 
 `Post http://needles.com/api/findNeedles`
 
