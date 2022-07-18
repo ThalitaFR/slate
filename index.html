@@ -354,26 +354,26 @@
 Meu nome é Thalita Freire Rodrigues, sou Technical Writer a 3 anos e irei apresentar um exemplo de documentação de API.
 A API fictícia <strong>Needles</strong> possui um método chamado <strong>findNeedles</strong>, o qual será usado no exemplo a seguir.</p>
 <h2 id='metodo-findneedles'>Método findNeedles</h2>
-<p><code>
-public static void findNeedles(String haystack, String [] needles){
-  if(needles.length&gt;5){
-    System.err.println(&quot;Too many words!&quot;);
-  }else{
-    int[] countArray = new int[needles.length];
-    for(int i = 0; i&lt; needles.length; i++){
-      String [] words = haystack.split(&quot;[\&quot;\&#39;\t\n\b\f\r]&quot;, 0);
-        for (int j=0; j &lt; words.length; j++){
-          if(words[j].compareTo(needles[i]) == 0){
-            countArray[i]++;
-          }
-        }
-    }
-    for (int j = 0; j &lt; needles.length; j++){
-      System.out.println(needles[j] + &quot;:&quot; + countArray[j]);
-    }
-  }
-}
-</code></p>
+<blockquote>
+<p>public static void findNeedles(String haystack, String [] needles){
+ if(needles.length&gt;5){
+   System.err.println(&quot;Too many words!&quot;);
+ }else{
+   int[] countArray = new int[needles.length];
+   for(int i = 0; i&lt; needles.length; i++){
+     String [] words = haystack.split(&quot;[\&quot;\&#39;\t\n\b\f\r]&quot;, 0);
+       for (int j=0; j &lt; words.length; j++){
+         if(words[j].compareTo(needles[i]) == 0){
+           countArray[i]++;
+         }
+       }
+   }
+   for (int j = 0; j &lt; needles.length; j++){
+     System.out.println(needles[j] + &quot;:&quot; + countArray[j]);
+   }
+ }
+}</p>
+</blockquote>
 <h1 id='autenticacao'>Autenticação</h1>
 <blockquote>
 <p>Para se autenticar na API, use os seguintes códigos:</p>
