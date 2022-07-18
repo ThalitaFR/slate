@@ -344,7 +344,7 @@ Meu nome é Thalita Freire Rodrigues, sou Technical Writer a 3 anos e irei apres
 A API fictícia <strong>Needles</strong> possui um método chamado <strong>findNeedles</strong>, o qual será usado no exemplo a seguir.</p>
 
 <p><strong>Método findNeedles</strong>
-```
+<code>
 public static void findNeedles(String haystack, String [] needles){
   if(needles.length&gt;5){
     System.err.println(&quot;Too many words!&quot;);
@@ -362,12 +362,15 @@ public static void findNeedles(String haystack, String [] needles){
       System.out.println(needles[j] + &quot;:&quot; + countArray[j]);
     }
   }
-}</p>
-<div class="highlight"><pre class="highlight plaintext"><code># Autenticação
+}
+</code>>
+</p>
+<div class="highlight"><pre class="highlight plaintext"># Autenticação
 
 &gt; Para se autenticar na API, use os seguintes códigos:
 
-```ruby
+<code>
+ruby
 require 'needles'
 
 api = needles::APIClient.authorize!('chave-do-usuario')
