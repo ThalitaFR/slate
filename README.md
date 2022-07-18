@@ -1,5 +1,5 @@
 ---
-permalink: /index.html.md
+permalink: source/index.html.md
 ---
 
 <p align="center">
