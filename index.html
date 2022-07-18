@@ -353,13 +353,15 @@
 <p>Sejam bem-vindos ao meu site! 
 Meu nome é Thalita Freire Rodrigues, sou Technical Writer a 3 anos e irei apresentar um exemplo de documentação de API.
 A API fictícia <strong>Needles</strong> possui um método chamado <strong>findNeedles</strong>, o qual será usado no exemplo a seguir.</p>
-<h2 id='metodo-findneedles'>Método findNeedles</h2><div class="highlight"><pre class="highlight plaintext"><code>public static void findNeedles(String haystack, String [] needles){
+<h2 id='metodo-findneedles'>Método findNeedles</h2>
+<p><code>
+public static void findNeedles(String haystack, String [] needles){
   if(needles.length&gt;5){
-    System.err.println("Too many words!");
+    System.err.println(&quot;Too many words!&quot;);
   }else{
     int[] countArray = new int[needles.length];
     for(int i = 0; i&lt; needles.length; i++){
-      String [] words = haystack.split("[\"\'\t\n\b\f\r]", 0);
+      String [] words = haystack.split(&quot;[\&quot;\&#39;\t\n\b\f\r]&quot;, 0);
         for (int j=0; j &lt; words.length; j++){
           if(words[j].compareTo(needles[i]) == 0){
             countArray[i]++;
@@ -367,12 +369,12 @@ A API fictícia <strong>Needles</strong> possui um método chamado <strong>findN
         }
     }
     for (int j = 0; j &lt; needles.length; j++){
-      System.out.println(needles[j] + ":" + countArray[j]);
+      System.out.println(needles[j] + &quot;:&quot; + countArray[j]);
     }
   }
 }
-
-</code></pre></div><h1 id='autenticacao'>Autenticação</h1>
+</code></p>
+<h1 id='autenticacao'>Autenticação</h1>
 <blockquote>
 <p>Para se autenticar na API, use os seguintes códigos:</p>
 </blockquote>
