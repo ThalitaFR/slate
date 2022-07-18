@@ -31,7 +31,7 @@ A API fictícia **Needles** possui um método chamado **findNeedles**, o qual se
 
 ## Método findNeedles
 
-```
+`
 public static void findNeedles(String haystack, String [] needles){
   if(needles.length>5){
     System.err.println("Too many words!");
@@ -50,8 +50,7 @@ public static void findNeedles(String haystack, String [] needles){
     }
   }
 }
-
-```
+`
 
 # Autenticação
 
