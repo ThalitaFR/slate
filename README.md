@@ -1,152 +1,86 @@
 ---
-title: Exemplo API Doc
-
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
-
-toc_footers:
-  - <a href='#'>Me siga no Github!</a>
-  - <a href='https://github.com/ThalitaFR'>Mesmo ociosa, as vezes apareço ;D </a>
-
-includes:
-  - errors
-
-search: true
-
-code_clipboard: true
-
-meta:
-  - name: description
-    content: Exemplo de documentação de API
+permalink: /index.html.md
 ---
 
-# Introdução
+<p align="center">
+  <img src="https://raw.githubusercontent.com/slatedocs/img/main/logo-slate.png" alt="Slate: API Documentation Generator" width="226">
+  <br>
+  <a href="https://github.com/slatedocs/slate/actions?query=workflow%3ABuild+branch%3Amain"><img src="https://github.com/slatedocs/slate/workflows/Build/badge.svg?branch=main" alt="Build Status"></a>
+  <a href="https://hub.docker.com/r/slatedocs/slate"><img src="https://img.shields.io/docker/v/slatedocs/slate?sort=semver" alt="Docker Version" /></a>
+</p>
 
-Sejam bem-vindos ao meu site! 
-Meu nome é Thalita Freire Rodrigues, sou Technical Writer a 3 anos e irei apresentar um exemplo de documentação de API.
-A API fictícia **Needles** possui um método chamado **findNeedles**, o qual será usado no exemplo a seguir.
+<p align="center">Slate helps you create beautiful, intelligent, responsive API documentation.</p>
 
-**Método findNeedles**
-```
-public static void findNeedles(String haystack, String [] needles){
-  if(needles.length>5){
-    System.err.println("Too many words!");
-  }else{
-    int[] countArray = new int[needles.length];
-    for(int i = 0; i< needles.length; i++){
-      String [] words = haystack.split("[\"\'\t\n\b\f\r]", 0);
-        for (int j=0; j < words.length; j++){
-          if(words[j].compareTo(needles[i]) == 0){
-            countArray[i]++;
-          }
-        }
-    }
-    for (int j = 0; j < needles.length; j++){
-      System.out.println(needles[j] + ":" + countArray[j]);
-    }
-  }
-}
+<p align="center"><img src="https://raw.githubusercontent.com/slatedocs/img/main/screenshot-slate.png" width=700 alt="Screenshot of Example Documentation created with Slate"></p>
 
-```
-# Autenticação
+<p align="center"><em>The example above was created with Slate. Check it out at <a href="https://slatedocs.github.io/slate">slatedocs.github.io/slate</a>.</em></p>
 
-> Para se autenticar na API, use os seguintes códigos:
+Features
+------------
 
-```ruby
-require 'needles'
+* **Clean, intuitive design** — With Slate, the description of your API is on the left side of your documentation, and all the code examples are on the right side. Inspired by [Stripe's](https://stripe.com/docs/api) and [PayPal's](https://developer.paypal.com/webapps/developer/docs/api/) API docs. Slate is responsive, so it looks great on tablets, phones, and even in print.
 
-api = needles::APIClient.authorize!('chave-do-usuario')
-```
+* **Everything on a single page** — Gone are the days when your users had to search through a million pages to find what they wanted. Slate puts the entire documentation on a single page. We haven't sacrificed linkability, though. As you scroll, your browser's hash will update to the nearest header, so linking to a particular point in the documentation is still natural and easy.
 
-```python
-import needles
+* **Slate is just Markdown** — When you write docs with Slate, you're just writing Markdown, which makes it simple to edit and understand. Everything is written in Markdown — even the code samples are just Markdown code blocks.
 
-api = needles.authorize('chave-do-usuario')
-```
+* **Write code samples in multiple languages** — If your API has bindings in multiple programming languages, you can easily put in tabs to switch between them. In your document, you'll distinguish different languages by specifying the language name at the top of each code block, just like with GitHub Flavored Markdown.
 
-```shell
-# No shell, passe como parâmetros o endpoint e a chave do usuário para a autorização
-curl "endpoint-da-api" \
-  -H "Authorization: chave-do-usuario"
-```
+* **Out-of-the-box syntax highlighting** for [over 100 languages](https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers), no configuration required.
 
-```javascript
-const needles = require('needles');
+* **Automatic, smoothly scrolling table of contents** on the far left of the page. As you scroll, it displays your current position in the document. It's fast, too. We're using Slate at TripIt to build documentation for our new API, where our table of contents has over 180 entries. We've made sure that the performance remains excellent, even for larger documents.
 
-let api = needles.authorize('chave-do-usuario');
-```
+* **Let your users update your documentation for you** — By default, your Slate-generated documentation is hosted in a public GitHub repository. Not only does this mean you get free hosting for your docs with GitHub Pages, but it also makes it simple for other developers to make pull requests to your docs if they find typos or other problems. Of course, if you don't want to use GitHub, you're also welcome to host your docs elsewhere.
 
-> Não se esqueça de inserir sua chave no usuário onde está o texto 'chave-do-usuario'.
+* **RTL Support** Full right-to-left layout for RTL languages such as Arabic, Persian (Farsi), Hebrew etc.
 
-A API needles usa a chave do usuário para permitir o acesso à API. Se você não possui a chave, faça seu cadastro no [site da nossa API](). 
+Getting started with Slate is super easy! Simply press the green "use this template" button above and follow the instructions below. Or, if you'd like to check out what Slate is capable of, take a look at the [sample docs](https://slatedocs.github.io/slate/).
 
-A chave da API deve ser inserida em todas as requisições em um header para que as operações sejam bem sucedidas. Veja a seguir um exemplo do header preenchido:
+Getting Started with Slate
+------------------------------
 
-`Authorization: KJBR-087235`
+To get started with Slate, please check out the [Getting Started](https://github.com/slatedocs/slate/wiki#getting-started)
+section in our [wiki](https://github.com/slatedocs/slate/wiki).
 
-<aside class="notice">
-<code>KJBR</code> são as siglas que ditam as iniciais do usuário e sua região. A sequência númerica é o registro numérico do usuário.
-</aside>
+We support running Slate in three different ways:
+* [Natively](https://github.com/slatedocs/slate/wiki/Using-Slate-Natively)
+* [Using Vagrant](https://github.com/slatedocs/slate/wiki/Using-Slate-in-Vagrant)
+* [Using Docker](https://github.com/slatedocs/slate/wiki/Using-Slate-in-Docker)
 
-# Needles
+Companies Using Slate
+---------------------------------
 
-## Find Needles
+* [NASA](https://api.nasa.gov)
+* [Sony](http://developers.cimediacloud.com)
+* [Best Buy](https://bestbuyapis.github.io/api-documentation/)
+* [Travis-CI](https://docs.travis-ci.com/api/)
+* [Greenhouse](https://developers.greenhouse.io/harvest.html)
+* [WooCommerce](http://woocommerce.github.io/woocommerce-rest-api-docs/)
+* [Dwolla](https://docs.dwolla.com/)
+* [Clearbit](https://clearbit.com/docs)
+* [Coinbase](https://developers.coinbase.com/api)
+* [Parrot Drones](http://developer.parrot.com/docs/bebop/)
+* [CoinAPI](https://docs.coinapi.io/)
 
-```ruby
-require 'haystack'
-require 'needles'
+You can view more in [the list on the wiki](https://github.com/slatedocs/slate/wiki/Slate-in-the-Wild).
 
-api = needles::APIClient.authorize!('chave-do-usuario')
-api.needles.post(haystack, needles)
-```
+Questions? Need Help? Found a bug?
+--------------------
 
-```python
-import needles
+If you've got questions about setup, deploying, special feature implementation in your fork, or just want to chat with the developer, please feel free to [start a thread in our Discussions tab](https://github.com/slatedocs/slate/discussions)!
 
-api = needles.authorize('chave-do-usuario')
-api.kittens.post(haystack, needles)
-```
+Found a bug with upstream Slate? Go ahead and [submit an issue](https://github.com/slatedocs/slate/issues). And, of course, feel free to submit pull requests with bug fixes or changes to the `dev` branch.
 
-```shell
-curl "endpoint-da-api\findNeedles\${haystack},${needles}" \
-  -H "Authorization: chave-do-usuario"
-```
+Contributors
+--------------------
 
-```javascript
-const needles = require('haystack', 'needles');
+Slate was built by [Robert Lord](https://lord.io) while at [TripIt](https://www.tripit.com/). The project is now maintained by [Matthew Peveler](https://github.com/MasterOdin) and [Mike Ralphson](https://github.com/MikeRalphson).
 
-let api = needles.authorize('chave-do-usuario');
-let needles = api.needles.post(haystack, needles);
-```
+Thanks to the following people who have submitted major pull requests:
 
-> Veja a seguir um exemplo da resposta para a requisição acima:
+- [@chrissrogers](https://github.com/chrissrogers)
+- [@bootstraponline](https://github.com/bootstraponline)
+- [@realityking](https://github.com/realityking)
+- [@cvkef](https://github.com/cvkef)
 
-```json
-[
-  {
-    "id": 1,
-    "response": " 2:4 "
-  },
-]
-```
-
-Esse endpoint retorna a quantidade de agulhas, representadas por letras ou palavras, encontradas em um palheiro.
-
-### HTTP Request
-
-`Post http://needles.com/api/findNeedles`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-haystack | '' | String com frase que representa o palheiro onde as agulhas (palavras) serão procuradas.
-needles | [''] | String array que deve conter as palavras que serão procuradas no palheiro.
-
-<aside class="success">
-Nota: caça-palavra ou caça-agulha? ;D
-</aside>
-
+Also, thanks to [Sauce Labs](http://saucelabs.com) for sponsoring the development of the responsive styles.
