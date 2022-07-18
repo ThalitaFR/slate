@@ -1,22 +1,20 @@
-# Errors
+# Erros
 
 <aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+Códigos de erros
 </aside>
 
-The Kittn API uses the following error codes:
+A API needles usa os seguintes códigos de erro:
 
-
-Error Code | Meaning
+Código | Descrição
 ---------- | -------
-400 | Bad Request -- Your request is invalid.
-401 | Unauthorized -- Your API key is wrong.
-403 | Forbidden -- The kitten requested is hidden for administrators only.
-404 | Not Found -- The specified kitten could not be found.
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method.
-406 | Not Acceptable -- You requested a format that isn't json.
-410 | Gone -- The kitten requested has been removed from our servers.
-418 | I'm a teapot.
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.
+400 | Bad Request -- Sua requisição é inválida.
+401 | Unauthorized -- Sua chave está errada.
+403 | Forbidden -- A requisição só é permitida para administradores. 
+404 | Not Found -- Recurso não encontrado.
+405 | Method Not Allowed -- O método usado para a API é inválido.
+406 | Not Acceptable -- Você requisitou um formato não suportado.
+410 | Gone -- O recurso usado foi removido da API.
+429 | Too Many Requests -- Você está fazendo mais requisições que o suportado! Exercite sua respiração e vá com mais calma (:
+500 | Internal Server Error -- Problemas com nosso servidor. Entre em contato ou tente novamente mais tarde.
+503 | Service Unavailable -- Estamos em manutenção. Tente novamente mais tarde.

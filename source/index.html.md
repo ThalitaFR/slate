@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: Exemplo API Doc
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
@@ -8,8 +8,8 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
+  - <a href='#'>Me siga no Github!</a>
+  - <a href='https://github.com/ThalitaFR'>Mesmo ociosa, as vezes apareço ;D </a>
 
 includes:
   - errors
@@ -20,226 +20,133 @@ code_clipboard: true
 
 meta:
   - name: description
-    content: Documentation for the Kittn API
+    content: Exemplo de documentação de API
 ---
 
-# Introduction
+# Introdução
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Sejam bem-vindos ao meu site! 
+Meu nome é Thalita Freire Rodrigues, sou Technical Writer a 3 anos e irei apresentar um exemplo de documentação de API.
+A API fictícia **Needles** possui um método chamado **findNeedles**, o qual será usado no exemplo a seguir.
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+**Método findNeedles**
+```
+public static void findNeedles(String haystack, String [] needles){
+  if(needles.length>5){
+    System.err.println("Too many words!");
+  }else{
+    int[] countArray = new int[needles.length];
+    for(int i = 0; i< needles.length; i++){
+      String [] words = haystack.split("[\"\'\t\n\b\f\r]", 0);
+        for (int j=0; j < words.length; j++){
+          if(words[j].compareTo(needles[i]) == 0){
+            countArray[i]++;
+          }
+        }
+    }
+    for (int j = 0; j < needles.length; j++){
+      System.out.println(needles[j] + ":" + countArray[j]);
+    }
+  }
+}
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+```
+# Autenticação
 
-# Authentication
-
-> To authorize, use this code:
+> Para se autenticar na API, use os seguintes códigos:
 
 ```ruby
-require 'kittn'
+require 'needles'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+api = needles::APIClient.authorize!('chave-do-usuario')
 ```
 
 ```python
-import kittn
+import needles
 
-api = kittn.authorize('meowmeowmeow')
+api = needles.authorize('chave-do-usuario')
 ```
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
-  -H "Authorization: meowmeowmeow"
+# No shell, passe como parâmetros o endpoint e a chave do usuário para a autorização
+curl "endpoint-da-api" \
+  -H "Authorization: chave-do-usuario"
 ```
 
 ```javascript
-const kittn = require('kittn');
+const needles = require('needles');
 
-let api = kittn.authorize('meowmeowmeow');
+let api = needles.authorize('chave-do-usuario');
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> Não se esqueça de inserir sua chave no usuário onde está o texto 'chave-do-usuario'.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+A API needles usa a chave do usuário para permitir o acesso à API. Se você não possui a chave, faça seu cadastro no [site da nossa API](). 
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+A chave da API deve ser inserida em todas as requisições em um header para que as operações sejam bem sucedidas. Veja a seguir um exemplo do header preenchido:
 
-`Authorization: meowmeowmeow`
+`Authorization: KJBR-087235`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+<code>KJBR</code> são as siglas que ditam as iniciais do usuário e sua região. A sequência númerica é o registro numérico do usuário.
 </aside>
 
-# Kittens
+# Needles
 
-## Get All Kittens
+## Find Needles
 
 ```ruby
-require 'kittn'
+require 'haystack'
+require 'needles'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+api = needles::APIClient.authorize!('chave-do-usuario')
+api.needles.post(haystack, needles)
 ```
 
 ```python
-import kittn
+import needles
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+api = needles.authorize('chave-do-usuario')
+api.kittens.post(haystack, needles)
 ```
 
 ```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
+curl "endpoint-da-api\findNeedles\${haystack},${needles}" \
+  -H "Authorization: chave-do-usuario"
 ```
 
 ```javascript
-const kittn = require('kittn');
+const needles = require('haystack', 'needles');
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+let api = needles.authorize('chave-do-usuario');
+let needles = api.needles.post(haystack, needles);
 ```
 
-> The above command returns JSON structured like this:
+> Veja a seguir um exemplo da resposta para a requisição acima:
 
 ```json
 [
   {
     "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
+    "response": " 2:4 "
   },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
 ]
 ```
 
-This endpoint retrieves all kittens.
+Esse endpoint retorna a quantidade de agulhas, representadas por letras ou palavras, encontradas em um palheiro.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`Post http://needles.com/api/findNeedles`
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+haystack | '' | String com frase que representa o palheiro onde as agulhas (palavras) serão procuradas.
+needles | [''] | String array que deve conter as palavras que serão procuradas no palheiro.
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Nota: caça-palavra ou caça-agulha? ;D
 </aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
 
